@@ -28,6 +28,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
     private Context mContext;
     private List<SubjectInfo> datas;
     private BitmapUtils bitmapUtils;
+
     String des;
     String url;
 
