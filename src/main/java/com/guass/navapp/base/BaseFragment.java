@@ -8,14 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.guass.navapp.bean.AppInfo;
 import com.guass.navapp.utils.Utils;
 import com.guass.navapp.view.LoadingPage;
+
+import java.util.List;
 
 
 /**
  * Created by guass on 2016/3/14.
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment <T> extends Fragment {
     private LoadingPage loadingPage;
 
     @Nullable
@@ -36,6 +39,26 @@ public abstract class BaseFragment extends Fragment {
             }
         };
         return loadingPage;
+    }
+
+
+    protected LoadingPage.LoadResult checkData(List<T> load)
+    {
+        if(load == null)
+        {
+            return LoadingPage.LoadResult.error;
+        }
+        else
+        {
+            if(load.size() == 0)
+            {
+                return LoadingPage.LoadResult.empty;
+            }
+            else
+            {
+                return LoadingPage.LoadResult.success;
+            }
+        }
     }
 
     public abstract View creatViewSuccess();

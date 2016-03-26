@@ -25,6 +25,8 @@ public class HomeViewHolder extends BaseHolder <AppInfo>{
     TextView item_bottom;
     CardView item_card;
 
+
+
     public HomeViewHolder(View itemView) {
         super(itemView);
     }

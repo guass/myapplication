@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_error"
             android:layout_centerHorizontal="true"
-            android:textColor="#ff717171"
+            android:textColor="#ffff08"
+            android:background="#aa0000FF"
             android:text="@string/load_error"/>
 
     </RelativeLayout>

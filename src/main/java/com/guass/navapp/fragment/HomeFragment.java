@@ -4,10 +4,14 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 
-import com.guass.navapp.adapter.HomeAdapter;
+import com.guass.navapp.R;
+import com.guass.navapp.adapter.ListbaseAdapter;
 import com.guass.navapp.base.BaseFragment;
+import com.guass.navapp.base.BaseHolder;
 import com.guass.navapp.bean.AppInfo;
+import com.guass.navapp.holder.HomeViewHolder;
 import com.guass.navapp.protocol.HomeProtocol;
 import com.guass.navapp.utils.Utils;
 import com.guass.navapp.view.LoadingPage;
@@ -37,7 +41,13 @@ public class HomeFragment extends BaseFragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(new HomeAdapter(Utils.getContext(),datas));
+        recyclerView.setAdapter(new ListbaseAdapter(Utils.getContext(),datas) {
+            @Override
+            public BaseHolder createRealViewHolder(ViewGroup parent, int viewType) {
+                return new HomeViewHolder(mLayoutInflater.inflate(R.layout.home_item_view,parent,false));
+            }
+        });
+
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         return recyclerView;
@@ -53,24 +63,7 @@ public class HomeFragment extends BaseFragment {
         return checkData(datas);
     }
 
-    private LoadingPage.LoadResult checkData(List<AppInfo> load)
-    {
-        if(load == null)
-        {
-            return LoadingPage.LoadResult.error;
-        }
-        else
-        {
-            if(load.size() == 0)
-            {
-                return LoadingPage.LoadResult.empty;
-            }
-            else
-            {
-                return LoadingPage.LoadResult.success;
-            }
-        }
-    }
+
 
 
 }
