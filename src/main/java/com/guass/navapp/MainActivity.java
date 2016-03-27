@@ -20,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 
 import com.guass.navapp.base.BaseActivity;
 import com.guass.navapp.factory.FragmentFactory;
@@ -51,6 +52,8 @@ public class MainActivity extends BaseActivity
     public void initView()
     {
             setContentView(R.layout.activity_main);
+
+
             mViewPager = (ViewPager) findViewById(R.id.vp);
             mPageTabStrip = (PagerTabStrip) findViewById(R.id.pager_tab_strip);
             mTab_names = Utils.getStringArray(R.array.tab_names);

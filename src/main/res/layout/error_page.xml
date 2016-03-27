@@ -26,7 +26,7 @@
             android:layout_below="@id/iv_error"
             android:layout_centerHorizontal="true"
             android:textColor="#ffff08"
-            android:background="#aa0000FF"
+            android:background="#aa000000"
             android:text="@string/load_error"/>
 
     </RelativeLayout>

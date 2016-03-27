@@ -8,7 +8,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.guass.navapp.R;
 import com.guass.navapp.thread.ThreadManager;
@@ -30,6 +32,7 @@ public abstract class LoadingPage extends FrameLayout {
     private View mErrorView;
     private View mSuccessView;
     private View mEmptyView;
+    private Button mBtn_error;
 
     public LoadingPage(Context context) {
      //   super(context);
@@ -44,6 +47,8 @@ public abstract class LoadingPage extends FrameLayout {
     public LoadingPage(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
+
+
     }
 
     public void init()
@@ -52,6 +57,14 @@ public abstract class LoadingPage extends FrameLayout {
         mLoadingView = creatLoadingView();
         mEmptyView = creatEmptyView();
         mErrorView = creatErrorView();
+
+        mBtn_error.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mErrorView.setVisibility(View.INVISIBLE);
+                init();
+            }
+        });
 
 
         if(mLoadingView != null)
@@ -79,7 +92,9 @@ public abstract class LoadingPage extends FrameLayout {
 
     public View creatErrorView()
     {
-        return  Utils.inflate(R.layout.error_page);
+        View view = Utils.inflate(R.layout.error_page);
+        mBtn_error = (Button) view.findViewById(R.id.btn_error_page);
+        return  view;
     }
 
     public View creatLoadingView()
@@ -110,42 +125,7 @@ public abstract class LoadingPage extends FrameLayout {
 
     }
 
-//    public void showPage()
-//    {
-//
-//  //      state = checkData();
-//        Log.i("jiguang","state == " + state);
-//        if(mLoadingView != null)
-//        {
-//
-//            mLoadingView.setVisibility(state == STATE_UNKOWN || state == STATE_LOADING ? View.VISIBLE:View.GONE);
-//        }
-//
-//        if(mErrorView != null)
-//        {
-//            mErrorView.setVisibility(state == STATE_ERROR ? View.VISIBLE:View.GONE);
-//        }
-//
-//        if (mEmptyView != null)
-//        {
-//            mEmptyView.setVisibility(state == STATE_EMPTY ? View.VISIBLE:View.GONE);
-//        }
-//
-//        if(state == STATE_SUCCESS)
-//        {
-//
-//            mSuccessView = creatSuccessView();
-//            if(mSuccessView != null)
-//            addView(mSuccessView, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//        }
-//        else
-//        {
-//
-//            if(mSuccessView != null)
-//            mSuccessView.setVisibility(View.INVISIBLE);
-//        }
-//
-//    }
+
 
     Handler handler = new Handler(){
         @Override
