@@ -4,20 +4,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_margin="7dp"
     android:id="@+id/home_cv_item"
     android:foreground="?android:attr/selectableItemBackground"
     card_view:cardCornerRadius="0dp"
     card_view:cardBackgroundColor="#FFFFFF"
     card_view:cardElevation="4dp"
+    android:background="@drawable/list_item_bg"
     >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="113dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/list_item_bg" >
+
+        >
 
         <RelativeLayout
             android:id="@+id/home_item_top"

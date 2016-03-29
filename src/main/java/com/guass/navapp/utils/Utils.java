@@ -24,4 +24,15 @@ public class Utils {
 
         return  View.inflate(getContext(),resource,null);
     }
+
+    public static void runOnUiThread(Runnable runnable) {
+        // 在主线程运行
+        if(android.os.Process.myTid()==BaseApplication.getMainTid()){
+            runnable.run();
+        }else{
+            //获取handler
+            BaseApplication.getHandler().post(runnable);
+        }
+    }
+
 }

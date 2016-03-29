@@ -48,12 +48,17 @@ public abstract  class BaseAdapter <T, V extends BaseHolder>  extends RecyclerVi
     public abstract void bindViewHoler(V holder,  int position);
     public abstract V createViewHoler(ViewGroup parent, int viewType);
 
-
-
     @Override
-    public int getItemCount() {
-        return datas.size();
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
     }
+
+//    @Override
+//    public int getItemCount() {
+//  //      return datas.size();
+//    }
+
+
     public T getItem(int position)
     {
         return  datas.get(position);

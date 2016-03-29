@@ -1,5 +1,7 @@
 package com.guass.navapp.protocol;
 
+import android.util.Log;
+
 import com.guass.navapp.bean.AppInfo;
 
 import org.json.JSONArray;
@@ -13,6 +15,13 @@ import java.util.List;
  * Created by guass on 2016/3/24.
  */
 public class HomeProtocol extends BaseProtocol<List<AppInfo>> {
+
+    List<String> pictrueUrl;
+
+    public List<String> getPictrueUrl() {
+        return pictrueUrl;
+    }
+
     @Override
     public String getKey() {
         return "home";
@@ -21,9 +30,20 @@ public class HomeProtocol extends BaseProtocol<List<AppInfo>> {
     @Override
     public List<AppInfo> parseJson(String json) {
         List<AppInfo> datas = new ArrayList<AppInfo>();
+         pictrueUrl = new ArrayList<String>();
+
         try
         {
             JSONObject object = new JSONObject(json);
+            JSONArray picture = object.getJSONArray("picture");
+            for (int i = 0; i < picture.length() ; i++)
+            {
+               String picStr =  picture.getString(i);
+                pictrueUrl.add(picStr);
+            }
+            Log.d("jiguang", "parseJson: picUrl =="  + pictrueUrl);
+
+
             JSONArray list = object.getJSONArray("list");
             for (int i = 0; i < list.length(); i++)
             {

@@ -45,6 +45,21 @@ public class SubjectFragment extends BaseFragment {
             public BaseHolder createRealViewHolder(ViewGroup parent, int viewType) {
                 return new SubjectViewHolder(mLayoutInflater.inflate(R.layout.subject_item_view,parent,false));
             }
+
+            @Override
+            public BaseHolder headerViewHolder(ViewGroup parent, int viewType) {
+                return null;
+            }
+
+            @Override
+            public boolean isHasHeader() {
+                return false;
+            }
+
+            @Override
+            protected List onLoad() {
+                return null;
+            }
         });
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 

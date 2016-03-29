@@ -42,6 +42,10 @@ public abstract class BaseFragment <T> extends Fragment {
     }
 
 
+    /**
+     * @param load
+     * @return
+     */
     protected LoadingPage.LoadResult checkData(List<T> load)
     {
         if(load == null)

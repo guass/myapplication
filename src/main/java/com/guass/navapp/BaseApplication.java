@@ -2,6 +2,7 @@ package com.guass.navapp;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Handler;
 import android.widget.BaseAdapter;
 
 /**
@@ -9,6 +10,9 @@ import android.widget.BaseAdapter;
  */
 public class BaseApplication extends Application {
     public  static BaseApplication mBaseApplication;
+
+    private static int mainTid;
+    private static Handler handler;
 
     @Override
     public void onCreate() {
@@ -19,5 +23,12 @@ public class BaseApplication extends Application {
     public static Context getContext()
     {
         return mBaseApplication;
+    }
+
+    public static int getMainTid() {
+        return mainTid;
+    }
+    public static Handler getHandler() {
+        return handler;
     }
 }
