@@ -55,7 +55,8 @@ public abstract class BaseProtocol <T>{
     private String loadServer(int index)
     {
         String json = null;
-        HttpHelper.HttpResult httpResult = HttpHelper.get(HttpHelper.URL + getKey()+ "?index=" + index);
+        Log.d("jiguang", "loadServer: getpp ==" + getParams());
+        HttpHelper.HttpResult httpResult = HttpHelper.get(HttpHelper.URL + getKey()+ "?index=" + index + getParams());
         if(httpResult != null)
         {
             json = httpResult.getString();
@@ -71,13 +72,16 @@ public abstract class BaseProtocol <T>{
 
     }
 
+    public String getParams() {
+        return "";
+    }
 
 
     private String loadLocal(int index)
     {
         //if the time is out them no local native
         File cacheDir = FileUtils.getCacheDir();
-        File cacheFile = new File(cacheDir, getKey() + "_" + index);
+        File cacheFile = new File(cacheDir, getKey() + "_" + index + getParams());
         BufferedReader br = null;
         FileReader fr = null;
         try
@@ -120,10 +124,13 @@ public abstract class BaseProtocol <T>{
         //write a time in the text to remember
         BufferedWriter bw = null;
         File dir = FileUtils.getCacheDir();
-
+//        if(getKey().equals("detail"))
+//        {
+//            return;
+//        }
         try
         {
-            File file = new File(dir,getKey() + "_" + index);
+            File file = new File(dir,getKey() + "_" + index + getParams());
             FileWriter fw = new FileWriter(file);
             bw = new BufferedWriter(fw);
             bw.write(System.currentTimeMillis() + 1000*60*200 +"");

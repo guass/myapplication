@@ -42,7 +42,7 @@ public class SubjectViewHolder extends BaseHolder<SubjectInfo> {
         mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Utils.getContext(),"position =" + position,Toast.LENGTH_SHORT).show();;
+                Toast.makeText(Utils.getContext(),"subject position =" + position,Toast.LENGTH_SHORT).show();;
             }
         });
     }

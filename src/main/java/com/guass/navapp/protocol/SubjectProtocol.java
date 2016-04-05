@@ -36,6 +36,7 @@ public class SubjectProtocol extends BaseProtocol<List<SubjectInfo>>{
     @Override
     public List<SubjectInfo>  parseJson(String json) {
 
+
         List<SubjectInfo> datas = new ArrayList<SubjectInfo>();
 
         try 

@@ -1,6 +1,8 @@
 package com.guass.navapp.holder;
 
+import android.content.Intent;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -8,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.guass.navapp.R;
+import com.guass.navapp.activity.DetailActivity;
 import com.guass.navapp.base.BaseHolder;
 import com.guass.navapp.bean.AppInfo;
 import com.guass.navapp.http.HttpHelper;
@@ -56,8 +59,22 @@ public class HomeViewHolder extends BaseHolder <AppInfo>{
          item_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Utils.getContext(),"position :" + position, Toast.LENGTH_SHORT).show();
+         //       Toast.makeText(Utils.getContext(),"position :" + position, Toast.LENGTH_SHORT).show();
+                onInnerClick(position);
             }
-        });
+
+
+         });
+    }
+
+    private void onInnerClick(int position)
+    {
+        Toast.makeText(Utils.getContext(),"position 4444 :" + position, Toast.LENGTH_SHORT).show();
+        AppInfo appInfo = getDatas().get(position);
+        Intent intent = new Intent(Utils.getContext(), DetailActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Log.d("jiguang", "onInnerClick: packageName == " + appInfo.getPackageName());
+        intent.putExtra("packageName",appInfo.getPackageName());
+        Utils.getContext().startActivity(intent);
     }
 }

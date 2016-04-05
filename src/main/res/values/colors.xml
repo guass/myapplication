@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="item_divider">#ffd7d7d7</color>
-    <color name="colorGreen">#aaFF4081</color>
-    <color name="colorGreenDrark">#FF4081</color>
+    <color name="colorGreen">#aa1485C6</color>
+    <color name="colorGreenDrark">#1485C6</color>
 
 
     <color name="blueText">#1485C6</color>
@@ -20,4 +20,5 @@
     <color name="background">#F9F9FA</color>
 
     <color name="greyBackground">#FFCFCFCF</color>
+    <color name="detail_screen_bg">#adadad</color>
 </resources>

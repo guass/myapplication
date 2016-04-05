@@ -1,5 +1,6 @@
 package com.guass.navapp.fragment;
 
+import android.graphics.Rect;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import com.guass.navapp.base.BaseFragment;
 
 import com.guass.navapp.base.BaseHolder;
 import com.guass.navapp.bean.SubjectInfo;
+import com.guass.navapp.decoration.SpaceItemDecoration;
 import com.guass.navapp.holder.SubjectViewHolder;
 import com.guass.navapp.protocol.SubjectProtocol;
 import com.guass.navapp.utils.Utils;
@@ -63,6 +65,8 @@ public class SubjectFragment extends BaseFragment {
         });
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
+        int dimensionPixelSize = Utils.getContext().getResources().getDimensionPixelSize(R.dimen.subject_card_space);
+        recyclerView.addItemDecoration(new SpaceItemDecoration(dimensionPixelSize));
         return recyclerView;
     }
 
@@ -71,6 +75,21 @@ public class SubjectFragment extends BaseFragment {
         SubjectProtocol subjectProtocol = new SubjectProtocol();
         datas = subjectProtocol.load(0);
         return checkData(datas);
+    }
+
+    class SpaceItemDecoration extends RecyclerView.ItemDecoration {
+        private int space;
+
+        SpaceItemDecoration(int space)
+        {
+            this.space = space;
+        }
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            if(parent.getChildPosition(view) != 0)
+                outRect.top = space;
+        }
     }
 
 }
