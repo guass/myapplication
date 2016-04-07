@@ -49,7 +49,6 @@ public class ThreadManager {
         private long time;
 
 
-
         public ThreadPoolProx(int corePoolSize, int maximumPoolSize, long time)
         {
             this.corePoolSize = corePoolSize;

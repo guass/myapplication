@@ -17,5 +17,6 @@
         <item>分类</item>
         <item>排行</item>
     </string-array>
+    <string name="app_detail_introduction">简介</string>
 
 </resources>

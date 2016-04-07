@@ -12,6 +12,8 @@ import com.guass.navapp.R;
 import com.guass.navapp.base.BaseActivity;
 import com.guass.navapp.bean.AppInfo;
 import com.guass.navapp.holder.DetailAppInfoHolder;
+import com.guass.navapp.holder.DetailDesHodler;
+import com.guass.navapp.holder.DetailSafeHolder;
 import com.guass.navapp.holder.DetailScreenHolder;
 import com.guass.navapp.protocol.DetailProtocol;
 import com.guass.navapp.protocol.HomeProtocol;
@@ -96,6 +98,16 @@ public class DetailActivity extends BaseActivity {
         View viewScreen = detailScreenHolder.getConvertView();
         detail_screen.addView(viewScreen);
 
+        //safe
+        DetailSafeHolder detailSafeHolder = new DetailSafeHolder(datas);
+        View viewSafe = detailSafeHolder.getConvertView();
+        detail_safe.addView(viewSafe);
+
+        //des
+        DetailDesHodler detailDesHodler = new DetailDesHodler(datas);
+        View viewDes = detailDesHodler.getConvertView();
+        detail_des.addView(viewDes);
+
         return view;
     }
 
@@ -108,9 +120,7 @@ public class DetailActivity extends BaseActivity {
         }
         else
         {
-
-                return LoadingPage.LoadResult.success;
-
+            return LoadingPage.LoadResult.success;
         }
     }
 

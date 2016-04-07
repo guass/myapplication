@@ -1,20 +1,19 @@
 package com.guass.navapp.holder;
 
-import android.graphics.Color;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.guass.navapp.R;
-import com.guass.navapp.base.BaseHolder;
+
 import com.guass.navapp.bean.AppInfo;
 import com.guass.navapp.http.HttpHelper;
 import com.guass.navapp.utils.BitmapHelper;
 import com.guass.navapp.utils.Utils;
 import com.lidroid.xutils.BitmapUtils;
 
-import java.util.List;
+
 
 /**
  * Created by guass on 2016/4/4.
