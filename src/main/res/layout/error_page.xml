@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/linearLayout">
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/iv_error"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@mipmap/ic_error_page"
             android:layout_centerHorizontal="true"
-           />
+            android:src="@mipmap/ic_error_page"
+            />
 
         <Button
             android:id="@+id/btn_error_page"
@@ -25,13 +25,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_error"
             android:layout_centerHorizontal="true"
-            android:textColor="#ffff08"
-            android:background="#aa000000"
-            android:text="@string/load_error"/>
+            android:background="#00000000"
+            android:text="@string/load_error"
+            android:textColor="#80000000"/>
 
     </RelativeLayout>
-
-
 
 
 </RelativeLayout>
